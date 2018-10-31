@@ -1,29 +1,40 @@
-<h2>Sign up</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="contact-title">
+                <h3>Rejestracja</h3>
+            </div>
+        </div>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="row">
+        <div class="col-12">
+            <div class="contact-content">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                <div class="contact-form-area">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+                      <div class="form-group">
+                          <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "E-mail", autocomplete: "email" %>
+                      </div>
+                      <div class="form-group">
+                        <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                        <% end %><br />
+                        <%= f.password_field :password, class: "form-control", placeholder: "Hasło", autocomplete: "new-password" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Powtórz hasło", autocomplete: "new-password" %>
+                      </div>
+                      <div class="actions">
+                        <%= f.submit "Zarejestruj się", class: "btn fitness-btn btn-2 mt-30" %>
+                      </div>
+                    <% end %>
+                    <br />
+                    <%= render "devise/shared/links" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
