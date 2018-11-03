@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_041455) do
+ActiveRecord::Schema.define(version: 2018_11_03_172027) do
 
   create_table "tickets", force: :cascade do |t|
     t.datetime "start_date"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2018_11_03_041455) do
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.datetime "start_visit"
+    t.datetime "end_visit"
+    t.integer "user_id"
+    t.integer "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_visits_on_ticket_id"
+    t.index ["user_id"], name: "index_visits_on_user_id"
   end
 
 end
