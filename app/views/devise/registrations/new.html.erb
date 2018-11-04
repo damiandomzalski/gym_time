@@ -1,18 +1,16 @@
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="contact-title">
-                <h3>Rejestracja</h3>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="contact-content">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
 
-                <div class="contact-form-area">
-                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<section class="login-block">
+    <div class="container">
+	<div class="row">
+		<div class="col-md-4 login-sec">
+		    <h2 class="text-center">Gym time</h2>
+
+
+		    <form class="login-form">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                       <%= devise_error_messages! %>
 
                       <div class="form-group">
@@ -32,9 +30,18 @@
                       </div>
                     <% end %>
                     <br />
+              
+                    <br />
                     <%= render "devise/shared/links" %>
-                </div>
-            </div>
-        </div>
-    </div>
+</form>
+
+
 </div>
+		   <div class="col-md-8 banner-sec">
+              <img class="d-block img-fluid" src="img/bg-img/bg_21.jpg">    
+            </div>
+            </div>
+	</div>
+</div>
+</div>
+</section>

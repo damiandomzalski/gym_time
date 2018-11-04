@@ -1,9 +1,13 @@
 .login-block{
-background: #38b143; 
+background: #38b143 !important; 
 background: -webkit-linear-gradient(to bottom, rgb(182, 227, 88), rgb(56, 177, 67));  
 background: linear-gradient(to bottom, rgb(182, 227, 88), #38b143); 
 width:100%;
 height: 100%;
+}
+
+body{
+    background: #38b143 !important; 
 }
 
 .banner-sec{background:url(https://www.worldgym.com/root/clientImages/WGY9999/WHYWORLDGYM11.jpg?1501583975455)  
