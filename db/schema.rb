@@ -10,7 +10,85 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_172027) do
+ActiveRecord::Schema.define(version: 2018_11_20_150528) do
+
+  create_table "abilities", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.date "day"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_abilities_on_user_id"
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.integer "number_seats"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "activities_attends", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "activities_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activities_id"], name: "index_activities_attends_on_activities_id"
+    t.index ["user_id"], name: "index_activities_attends_on_user_id"
+  end
+
+  create_table "activities_calendars", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.date "day"
+    t.integer "user_id"
+    t.integer "activities_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activities_id"], name: "index_activities_calendars_on_activities_id"
+    t.index ["user_id"], name: "index_activities_calendars_on_user_id"
+  end
+
+  create_table "adresses", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.string "street"
+    t.string "zip_code"
+    t.string "city"
+    t.date "date_birth"
+    t.integer "pesel"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_adresses_on_user_id"
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.integer "condition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.boolean "discount"
+    t.float "discount_size"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "repairs", force: :cascade do |t|
+    t.date "fix_start_date"
+    t.date "fix_end_date"
+    t.integer "price"
+    t.integer "equipment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipment_id"], name: "index_repairs_on_equipment_id"
+  end
 
   create_table "tickets", force: :cascade do |t|
     t.datetime "start_date"
@@ -19,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_11_03_172027) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_tickets_on_product_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -31,6 +111,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_172027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.string "profile"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
