@@ -1,18 +1,13 @@
-
-
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
 
 <section class="login-block">
     <div class="container">
-	<div class="row">
-		<div class="col-md-4 login-sec">
+	    <div class="row">
+		    <div class="col-md-4 login-sec">
 		    <h2 class="text-center">Gym time</h2>
 
-
-		    <form class="login-form">
-
-                      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                      <%= devise_error_messages! %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
 
   <div class="form-group">
     <label for="exampleInputEmail1" class="text-uppercase">E-mail</label>
@@ -29,14 +24,12 @@
   
     <div class="form-check">
                 <%= f.submit "Zaloguj się", class: "btn btn-login float-right" %>
-  </div>
-        <% end %>
-              <br />
+            </div>
+                    <% end %>
+                        <br />
                     <br />
                     <br />
                     <%= render "devise/shared/links" %>
-</form>
-
 
 </div>
 		   <div class="col-md-8 banner-sec">

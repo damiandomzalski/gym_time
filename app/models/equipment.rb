@@ -1,3 +1,3 @@
 class Equipment < ApplicationRecord
-  has_many : repairs   
+  has_many :repairs   
 end
