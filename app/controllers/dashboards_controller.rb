@@ -1,15 +1,14 @@
 class DashboardsController < ApplicationController
-    before_action :authorize_admin
+  before_action :authorize_admin
 
-    def index 
-        @clients_count = User.where(profile: [nil, ""], admin: false).count
+  def index
+    @clients_count = User.where(profile: [nil, ""], admin: false).count
+    render layout: false
+  end
 
-        render layout: false
-    end
+  private
 
-    private 
-
-    def authorize_admin
-        redirect_to root_path unless current_user.admin?
-    end
+  def authorize_admin
+    redirect_to root_path unless current_user.admin?
+  end
 end
