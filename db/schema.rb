@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_150528) do
+ActiveRecord::Schema.define(version: 2018_12_10_191123) do
 
   create_table "abilities", force: :cascade do |t|
     t.datetime "start_time"
@@ -50,9 +50,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_150528) do
     t.index ["user_id"], name: "index_activities_calendars_on_user_id"
   end
 
-  create_table "adresses", force: :cascade do |t|
-    t.string "name"
-    t.string "surname"
+  create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "zip_code"
     t.string "city"
@@ -61,7 +59,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_150528) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_adresses_on_user_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "equipment", force: :cascade do |t|
