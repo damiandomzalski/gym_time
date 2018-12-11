@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
 
   def index
     @clients_count = User.where(role: [nil, ""], admin: false).count
-    # render layout: false
+    render layout: false
   end
 
   private
