@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <base href="/">
   <meta charset="UTF-8">
@@ -22,7 +21,7 @@
         <div class="classy-nav-container breakpoint-off">
           <div class="container">
             <nav class="classy-navbar justify-content-between" id="fitnessNav">
-              <a href="index.html" class="nav-brand"><img src="img/core-img/l.png" alt=""></a>
+              <%= link_to image_tag("logo.png"), root_path, class: "nav-brand" %>
               <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>
               </div>
@@ -32,10 +31,10 @@
                 </div>
                 <div class="classynav">
                   <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><%= link_to "Home", root_path %></li>
                     <li><a href="silownia.html">O siłowni</a></li>
                     <li><a href="#">Promocje</a></li>
-                    <li><a href="treners.html">Trenerzy</a></li>
+                    <li><%= link_to "Trenerzy", trainers_path %></li>
                   </ul>
                   <% if user_signed_in? %>
                     <button class="fitness-btn menu-btn ml-30"><%= current_user.email %></button>
@@ -68,7 +67,6 @@
           </div>
         </div>
 
-
         <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
           <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -82,7 +80,6 @@
             </div>
           </div>
         </div>
-
 
         <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg-3.jpg);">
           <div class="container h-100">
@@ -108,14 +105,11 @@
               <a href="#"><img src="img/bg-img/OPEN_FREE.gif" alt=""></a>
             </div>
           </div>
-
-
           <div class="col-12 col-lg-6">
             <div class="single-add-area mt-100">
               <a href="#"><img src="img/bg-img/discount_30%.gif" alt=""></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -148,7 +142,7 @@
 
               <div class="col-12">
                 <div class="about-btn-group mt-50">
-                  <a href="#" class="btn fitness-btn mr-3">Dołącz do nas</a>
+                  <%= link_to "Dołącz do nas", new_user_registration_path, class: "btn fitness-btn mr-3" %>
                   <a href="#" class="btn fitness-btn btn-2">Sprawdź ofertę</a>
                 </div>
               </div>
@@ -165,223 +159,90 @@
     </div>
 
     <div id="zajecia" class="fitness-services-area section-padding-100-0">
-        <div class="container">
-            <div class="row">
-
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area mb-100">
-                        <div class="course-content d-flex align-items-center">
-
-                            <div class="course-icon d-flex align-items-center justify-content-center">
-                                <img src="img/core-img/zumba.png" alt="">
-                            </div>
-                            <h4>Zumba</h4>
-                        </div>
-                        <p>Taniec zainspirowany połączeniem elementów tańców latynoamerykańskich oraz elementów fitness.</p>
-                    </div>
+      <div class="container">
+        <div class="row">
+          <% @activities.each do |activity| %>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="single-service-area mb-100">
+                <div class="course-content d-flex align-items-center">
+                  <div class="course-icon d-flex align-items-center justify-content-center">
+                    <%= image_tag(activity.image) unless activity.image.blank? %>
+                  </div>
+                  <h4><%= activity.name %></h4>
                 </div>
-
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area mb-100">
-                        <div class="course-content d-flex align-items-center">
-
-                            <div class="course-icon d-flex align-items-center justify-content-center">
-                                <img src="img/core-img/aqua_aerobik.png" alt="">
-                            </div>
-                            <h4>Aqua aerobik</h4>
-                        </div>
-                        <p> Jest to gimnastyka wykonywana w wodzie. Ciało człowieka wówczas waży o wiele mniej, dlatego łatwiej niż na sali wykonuje się ćwiczenia.</p>
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area mb-100">
-                        <div class="course-content d-flex align-items-center">
-
-                            <div class="course-icon d-flex align-items-center justify-content-center">
-                                <img src="img/core-img/pilates.png" alt="">
-                            </div>
-                            <h4>Pilates</h4>
-                        </div>
-                        <p>System pilates to połączenie jogi, baletu i ćwiczeń izometrycznych. Celem jest rozciągnięcie i uelastycznienie wszystkich mięśni ciała. </p>
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area mb-100">
-                        <div class="course-content d-flex align-items-center">
-
-                            <div class="course-icon d-flex align-items-center justify-content-center">
-                                <img src="img/core-img/trampoliny.png" alt="">
-                            </div>
-                            <h4>Trampoliny</h4>
-                        </div>
-                        <p> Jest to trening ogólnorozwojowy. Poprawia kondycję, modeluje sylwetkę, wyzwala endorfiny oraz spala tkankę tłuszczową.</p>
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area mb-100">
-                        <div class="course-content d-flex align-items-center">
-
-                            <div class="course-icon d-flex align-items-center justify-content-center">
-                                <img src="img/core-img/ABT.png" alt="">
-                            </div>
-                            <h4>ABT</h4>
-                        </div>
-                        <p>Wzmacnia i ujędrnia mięśnie dolnych partii ciała. Jest to trening o średniej intensywności, bez szczególnych wymagań sprawnościowych. </p>
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area mb-100">
-                        <div class="course-content d-flex align-items-center">
-
-                            <div class="course-icon d-flex align-items-center justify-content-center">
-                                <img src="img/core-img/cardio.png" alt="">
-                            </div>
-                            <h4>Cardio</h4>
-                        </div>
-                        <p>Treningiem wytrzymałościowy. Pomaga spaleć nadmiar tkanki tłuszczowej. Poprawia wydolność płuc oraz poprawia pracę serca.</p>
-                    </div>
-                </div>
-
+                <p><%= activity.description %></p>
+              </div>
             </div>
+          <% end %>
         </div>
+      </div>
     </div>
-
-
 
     <div id="karnety" class="fitness-pricing-table-area section-padding-100-0 bg-img bg-overlay bg-fixed" style="background-image: url(img/bg-img/bg-7.jpg);">
-        <div class="container">
-            <div class="row justify-content-center">
-
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-price-table mb-100">
-                        <img src="img/bg-img/people_gym.jpg" alt="">
-                        <div class="price-table-content">
-
-                            <h2 class="price">
-                                150zł<span>/ Miesiąc</span>
-                            </h2>
-                            <h5>Karnet OPEN </h5>
-
-                            <ul class="price-data">
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> 7 dni w tygodniu od 6:00 do 23:00</li>
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> wstęp wolny na zajęcia grupowe</li>
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> profesjonalna pomoc trenerów</li>
-                            </ul>
-
-                            <a href="#" class="btn fitness-btn mt-30">KUP TERAZ</a>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <% @products.each do |product| %>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="single-price-table mb-100">
+                <%= image_tag(product.image) unless product.image.blank? %>
+                <div class="price-table-content">
+                  <h2 class="price">
+                    <%= product.price %>zł<span>/ Miesiąc</span>
+                  </h2>
+                  <h5><%= product.name %></h5>
+                  <p><%= product.description.gsub(/\n/, '<br/>').html_safe %></p>
+                  <a href="#" class="btn fitness-btn mt-30">KUP TERAZ</a>
                 </div>
-
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-price-table mb-100">
-                        <img src="img/bg-img/gym.jpg" alt="">
-                        <div class="price-table-content">
-
-                            <h2 class="price">
-                                90zł<span>/ Miesiąc</span>
-                            </h2>
-                            <h5>Karnet HAPPY HOURS</h5>
-
-                            <ul class="price-data">
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> 5 dni w tygodniu od 8:00 do 17:00</li>
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> wstęp wolny na zajęcia grupowe</li>
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> profesjonalna pomoc trenerów</li>
-                            </ul>
-
-                            <a href="#" class="btn fitness-btn mt-30">KUP TERAZ</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-price-table mb-100">
-                        <img src="img/bg-img/OPEN_FREE_KARNET.jpg" alt="">
-                        <div class="price-table-content">
-
-                            <h2 class="price">
-                                90zł<span>/ Miesiąc</span>
-                            </h2>
-                            <h5>Karnet FITNESS </h5>
-
-                            <ul class="price-data">
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> 7 dni w tygodniu</li>
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> duży wybór zajęć </li>
-                                <li><i class="fa fa-circle" aria-hidden="true"></i> nowoczesny sprz</li>
-                            </ul>
-
-                            <a href="#" class="btn fitness-btn mt-30">KUP TERAZ</a>
-                        </div>
-                    </div>
-                </div>
-
+              </div>
             </div>
+          <% end %>
         </div>
+      </div>
     </div>
 
-
-
     <div class="fitness-working-hours-area section-padding-100-0">
-        <div class="container">
-            <div class="row">
-
-
-                <div class="col-12 col-lg-6">
-                    <div class="fitness-working-hours mb-100">
-                        <div class="section-heading">
-                            <h6>Fitness Gym</h6>
-                            <h2>Working Hours</h2>
-                        </div>
-
-                        <ul class="working-hours">
-                            <li><span>Monday</span> <span>16:00 - 20:00</span></li>
-                            <li><span>Tuesday</span> <span>12:00 - 20:00</span></li>
-                            <li><span>Wednesday</span> <span>12:00 - 20:00</span></li>
-                            <li><span>Thursday</span> <span>12:00 - 20:00</span></li>
-                            <li><span>Friday</span> <span>15:00 - 21:00</span></li>
-                            <li><span>Saturday</span> <span>10:00 - 20:00</span></li>
-                            <li><span>Sunday</span> <span>Closed</span></li>
-                        </ul>
-                    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <div class="fitness-working-hours mb-100">
+                <div class="section-heading">
+                  <h6>Fitness Gym</h6>
+                  <h2>Working Hours</h2>
                 </div>
-
-
-                <div class="col-12 col-lg-6">
-                    <div class="our-newsletter-area mb-100">
-                        <div class="section-heading">
-                            <h6>Fitness Gym</h6>
-                            <h2>Our Newsletter</h2>
-                        </div>
-
-
-                        <form action="#" method="get">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
-                            </div>
-                            <div class="form-group mb-0">
-                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Your E-mail">
-                                <small id="emailHelp" class="form-text text-muted">*Donec id mattis est. Proin nunc sapien, gravida ut sapien ut, ultrices faucibus sapien. Proin vehicula varius ex, vel feugiat massa scelerisque id.</small>
-                            </div>
-                            <button type="submit" class="btn fitness-btn btn-white mt-50">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-
+                <ul class="working-hours">
+                  <li><span>Monday</span> <span>16:00 - 20:00</span></li>
+                  <li><span>Tuesday</span> <span>12:00 - 20:00</span></li>
+                  <li><span>Wednesday</span> <span>12:00 - 20:00</span></li>
+                  <li><span>Thursday</span> <span>12:00 - 20:00</span></li>
+                  <li><span>Friday</span> <span>15:00 - 21:00</span></li>
+                  <li><span>Saturday</span> <span>10:00 - 20:00</span></li>
+                  <li><span>Sunday</span> <span>Closed</span></li>
+                </ul>
+              </div>
             </div>
+
+
+        <div class="col-12 col-lg-6">
+            <div class="our-newsletter-area mb-100">
+              <div class="section-heading">
+                <h6>Fitness Gym</h6>
+                <h2>Our Newsletter</h2>
+              </div>
+
+              <form action="#" method="get">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
+                </div>
+                <div class="form-group mb-0">
+                  <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Your E-mail">
+                  <small id="emailHelp" class="form-text text-muted">*Donec id mattis est. Proin nunc sapien, gravida ut sapien ut, ultrices faucibus sapien. Proin vehicula varius ex, vel feugiat massa scelerisque id.</small>
+                </div>
+                <button type="submit" class="btn fitness-btn btn-white mt-50">Subscribe</button>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
 

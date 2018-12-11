@@ -26,5 +26,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore strange windows file
+# Ignore db file
 gym_time_development
+
+.DS_Store
