@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many  :activities_calendar
   has_many  :activities_attends
 
-  scope :trainers, -> { where(profile: 'trener') }
+  scope :trainers, -> { where(role: 'trener') }
 end

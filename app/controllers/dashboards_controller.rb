@@ -2,7 +2,7 @@ class DashboardsController < ApplicationController
   before_action :authorize_admin
 
   def index
-    @clients_count = User.where(profile: [nil, ""], admin: false).count
+    @clients_count = User.where(role: [nil, ""], admin: false).count
     render layout: false
   end
 
