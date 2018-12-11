@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :pages
   resources :dashboards
   resources :trainers
-  
+  resources :orders
+
   devise_for :users
 end
