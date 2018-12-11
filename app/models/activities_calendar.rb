@@ -1,4 +1,4 @@
 class ActivitiesCalendar < ApplicationRecord
   belongs_to :user
-  belongs_to :activities
+  belongs_to :activity
 end
