@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many  :activities
   has_many  :activities_calendar
   has_many  :activities_attends
-
+  has_many  :orders
+  
   scope :trainers, -> { where(role: 'trener') }
 end

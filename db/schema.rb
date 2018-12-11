@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_001716) do
+ActiveRecord::Schema.define(version: 2018_12_11_113443) do
 
   create_table "abilities", force: :cascade do |t|
     t.datetime "start_time"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 2018_12_11_001716) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+    t.float "paid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -80,6 +90,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_001716) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.string "image"
+    t.integer "days"
   end
 
   create_table "repairs", force: :cascade do |t|
@@ -95,12 +106,11 @@ ActiveRecord::Schema.define(version: 2018_12_11_001716) do
   create_table "tickets", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "purchased_date"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "product_id"
-    t.index ["product_id"], name: "index_tickets_on_product_id"
+    t.integer "order_id"
+    t.index ["order_id"], name: "index_tickets_on_order_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
