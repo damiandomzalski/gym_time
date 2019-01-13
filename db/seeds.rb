@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Activity.first_or_create(name: 'Zumba', description: 'Taniec zainspirowany połączeniem elementów tańców latynoamerykańskich oraz elementów fitness.', image: 'activities/zumba.png')
+Activity.first_or_create(name: 'Aqua aerobik', description: 'Jest to gimnastyka wykonywana w wodzie. Ciało człowieka wówczas waży o wiele mniej, dlatego łatwiej niż na sali wykonuje się ćwiczenia.', image: 'activities/aqua_aerobik.png')
+Activity.first_or_create(name: 'Pilates', description: 'System pilates to połączenie jogi, baletu i ćwiczeń izometrycznych. Celem jest rozciągnięcie i uelastycznienie wszystkich mięśni ciała.', image: 'activities/pilates.png')
+Activity.first_or_create(name: 'Trampoliny', description: 'Jest to trening ogólnorozwojowy. Poprawia kondycję, modeluje sylwetkę, wyzwala endorfiny oraz spala tkankę tłuszczową.', image: 'activities/trampoliny.png')
+Activity.first_or_create(name: 'ABT', description: 'Wzmacnia i ujędrnia mięśnie dolnych partii ciała. Jest to trening o średniej intensywności, bez szczególnych wymagań sprawnościowych.', image: 'activities/abt.png')
+Activity.first_or_create(name: 'Cardio', description: 'Treningiem wytrzymałościowy. Pomaga spaleć nadmiar tkanki tłuszczowej. Poprawia wydolność płuc oraz poprawia pracę serca.', image: 'activities/cardio.png')
