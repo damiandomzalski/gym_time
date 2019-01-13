@@ -1,0 +1,159 @@
+
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+    </div>
+
+    
+    <header class="header-area">
+        
+        <div class="fitness-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    
+                    <nav class="classy-navbar justify-content-between" id="fitnessNav">
+
+                        
+                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+
+                        
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        
+                        <div class="classy-menu">
+
+                            
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about-us.html">About Us</a></li>
+                                            <li><a href="services.html">Services</a></li>
+                                            <li><a href="blog.html">News</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="elements.html">Elements</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Mega Menu</a>
+                                        <div class="megamenu">
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="services.html">Services</a></li>
+                                                <li><a href="blog.html">News</a></li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="elements.html">Elements</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="services.html">Services</a></li>
+                                                <li><a href="blog.html">News</a></li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="elements.html">Elements</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="services.html">Services</a></li>
+                                                <li><a href="blog.html">News</a></li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="elements.html">Elements</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="services.html">Services</a></li>
+                                                <li><a href="blog.html">News</a></li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="elements.html">Elements</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="blog.html">News</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+
+                                
+                                <a href="#" class="fitness-btn menu-btn ml-30">Call:  +34 586 778 8892</a>
+
+                            </div>
+                            
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+
+    
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb-2.jpg);">
+        <div class="bradcumbContent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Contact</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <section class="contact-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-title">
+                        <h3>Kupujesz: <%= @product.name %> </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-content">
+                        <h4> Za kwotę:<%= @product.price%></h4>
+                        <div class="contact-form-area">
+                            <%= form_for @order do %>
+                            <%= hidden_field_tag "product_id", params[:product_id]%>
+                                <div class="form-group">
+                                    <%= text_field_tag(:date_from, "", class: "form-control datetimepicker-input", placeholder: "Wpisz date od kiedy, format dd-mm-rrrr") %>
+                                </div>
+                                <%= submit_tag "Zamow", class: "btn fitness-btn btn-2 mt-30" %>
+                                <button class="btn fitness-btn btn-2 mt-30" type="submit">Contact Us</button>
+                           <% end %>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+            $(function () {
+                $('.datetimepicker-input').datetimepicker();
+            });
+        </script>
+            </div>
+        </div>
+    </section>
+    
+
+    
+   
+
+

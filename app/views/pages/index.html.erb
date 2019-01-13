@@ -191,7 +191,7 @@
                   </h2>
                   <h5><%= product.name %></h5>
                   <p><%= product.description.gsub(/\n/, '<br/>').html_safe %></p>
-                  <%= button_to "KUP TERAZ", orders_path(product_id: product.id), class: "btn fitness-btn mt-30", method: :post %>
+                  <%= link_to "KUP TERAZ", new_order_path(product_id: product.id), class: "btn fitness-btn mt-30" %>
                 </div>
               </div>
             </div>

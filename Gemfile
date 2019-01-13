@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.1'
+ruby '2.3.3'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'loofah'
 gem 'devise'
@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap4-datetime-picker-rails'
 gem 'jquery-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
