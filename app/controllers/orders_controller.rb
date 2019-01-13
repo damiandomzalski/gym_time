@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
     end
   end
 
+  private
+
   def product
     Product.find(params[:product_id].to_i)
   end
