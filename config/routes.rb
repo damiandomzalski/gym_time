@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :dashboards
   resources :trainers
   resources :orders
+  resources :users
 
   devise_for :users
 end

@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
   end
 
   def assign_ticket
-    Ticket.create!(user: current_user, order: @order, start_date: activation_date, end_date: activation_date + product.days)
+    Ticket.create!(user: current_user, order: @order, start_date: Date.today, end_date: Date.today + product.days)
   end
 
   def activation_date
