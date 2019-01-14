@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :trainers
   resources :orders
-  resources :users
+  resources :profiles
 
   devise_for :users
 end
