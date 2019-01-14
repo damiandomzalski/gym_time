@@ -40,8 +40,6 @@
                                         </ul>
                                     </li>
                                 
-
-                                    
                                 <%= link_to "Twój profil", user_path(current_user), class: 'fitness-btn menu-btn ml-30' %>
 
                             </div>
@@ -72,45 +70,6 @@
         </div>
     </div>
 
-
-
-    <section class="contact-area section-padding-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="contact-title">
-                        <h3>Kupujesz: <%= @product.name %> </h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="contact-content">
-                        <h4> Za kwotę:<%= @product.price%></h4>
-                        <div class="contact-form-area">
-                            <%= form_for @order do %>
-                            <%= hidden_field_tag "product_id", params[:product_id]%>
-                                <div class="form-group">
-                                    <%= text_field_tag(:date_from, "", class: "form-control datetimepicker-input", placeholder: "Wpisz date od kiedy, format dd-mm-rrrr") %>
-                                </div>
-                                <%= submit_tag "Zamow", class: "btn fitness-btn btn-2 mt-30" %>
-                                <button class="btn fitness-btn btn-2 mt-30" type="submit" >Usuń</button>
-                           <% end %>
-                        </div>
-                    </div>
-                </div>
-                <script type="text/javascript">
-            $(function () {
-                $('.datetimepicker-input').datetimepicker();
-            });
-        </script>
-            </div>
-        </div>
-    </section>
-   
-
-
  <%# Edycja profilu %>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -136,7 +95,7 @@
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
-  		<div class="col-sm-10"><h1>User name</h1></div>
+  		<div class="col-sm-10"><h1><%= @user.email %></h1></div>
     	<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src=""></a></div>
     </div>
     <div class="row">
@@ -249,17 +208,16 @@
                         <th>Cena</th>
                     </tr> 
                   </thead>
-                  <tbody>
-                    <% @orders.each do |order| %>
+                  <% @orders.each do |order| %>
                           <tr>
                             <td class="hidden-xs"><%= order.id %></td>
                             <td><%= order.created_at.strftime('%d.%m.%y') %></td>
                             <td><%= order.product.name %></td>
-                            <td><%= order.product.name %></td>
-                            <td><%= order.ticket.start_date.strftime('%d.%m.%y') %></td>
-                            <td><%= order.ticket.end_date.strftime('%d.%m.%y') %></td>
+                            <td><%= order.ticket&.start_date&.strftime('%d.%m.%y') %></td>
+                            <td><%= order.ticket&.end_date&.strftime('%d.%m.%y') %></td>
                             <td><%= order.product.price %></td>
                           </tr>
+                          <% end %>
                         </tbody>
                 </table>
             
@@ -275,7 +233,3 @@
             </div>
 
 </div></div></div>
-
-            		
-               	
-                  
