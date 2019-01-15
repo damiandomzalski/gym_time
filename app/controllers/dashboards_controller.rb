@@ -10,7 +10,6 @@ class DashboardsController < ApplicationController
   end
 
   def attach_trainer_to_activity
-    binding.pry
     attachment = ActivitiesAttend.new(activities_id: params[:activity_id], user_id: current_user.id)
     if attachment.save
       flash[:success] = "Przypisano do zajęć!"
