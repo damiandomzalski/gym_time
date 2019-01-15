@@ -1,6 +1,5 @@
-
 body { 
-    padding-top: 120px; 
+    padding-top: 120px;
     background-color:#38b143;
 }
 .carousel{
@@ -11,7 +10,7 @@ body {
     top:700px;
     left:450px;
     height:105px;
-    width: 100%; 
+    width: 100%;
 }
 .carousel-indicators li{
     text-indent:0;

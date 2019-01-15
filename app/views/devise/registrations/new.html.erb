@@ -1,41 +1,32 @@
-<%# formularz rejstracji %>
-<link rel="stylesheet" type="text/css" href="css/login.css">
-
+<%= stylesheet_link_tag "login.css" %>
 <section class="login-block">
   <div class="container">
-	  <div class="row">
-		  <div class="col-md-4 login-sec">
-		    <h2 class="text-center">Gym time</h2>
+    <div class="row">
+      <div class="col-md-4 login-sec">
+        <h2 class="text-center">Gym time</h2>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "login-form") do |f| %>
-          <%= devise_error_messages! %>
-          <div class="form-group">
-            <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "E-mail", autocomplete: "email" %>
-          </div>
-          <div class="form-group">
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, class: "form-control", placeholder: "Hasło", autocomplete: "new-password" %>
-          </div>
-          <div class="form-group">
-            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Powtórz hasło", autocomplete: "new-password" %>
-          </div>
-          <div class="actions">
-            <%= f.submit "Zarejestruj się", class: "btn fitness-btn btn-2 mt-30" %>
-          </div>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "E-mail", autocomplete: "email" %>
+        </div>
+        <div class="form-group">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: "form-control", placeholder: "Hasło", autocomplete: "new-password" %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Powtórz hasło", autocomplete: "new-password" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Zarejestruj się", class: "btn fitness-btn btn-2 mt-30" %>
+        </div>
         <% end %>
         <br />
-  
         <br />
         <%= render "devise/shared/links" %>
-
-
-        </div>
-      <div class="col-md-8 banner-sec">
-        <img class="d-block img-fluid" src="img/bg-img/bg_21.jpg">    
       </div>
-      </div>
+      <div class="col-md-8 banner-sec"></div>
     </div>
   </div>
-</div>
 </section>
