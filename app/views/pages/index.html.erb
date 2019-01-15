@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Fitness Gym - A Modern Fitness Gym Template</title>
+  <title>Gym_Time app <3</title>
   <link rel="icon" href="img/core-img/favicon.ico">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,390 +15,150 @@
   <div id="preloader">
     <i class="circle-preloader"></i>
   </div>
-
-    <header class="header-area">
-      <div class="fitness-main-menu">
-        <div class="classy-nav-container breakpoint-off">
-          <div class="container">
-            <nav class="classy-navbar justify-content-between" id="fitnessNav">
-              <%= link_to image_tag("logo.png"), root_path, class: "nav-brand" %>
-              <div class="classy-navbar-toggler">
-                <span class="navbarToggler"><span></span><span></span><span></span></span>
-              </div>
-              <div class="classy-menu">
-                <div class="classycloseIcon">
-                  <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                </div>
-                <div class="classynav">
-                  <ul>
-                    <li><%= link_to "Home", root_path %></li>
-                    <li><a href="silownia.html">O siłowni</a></li>
-                    <li><a href="#">Promocje</a></li>
-                    <li><%= link_to "Trenerzy", trainers_path %></li>
-                  </ul>
-                  <% if user_signed_in? %>
-                    <button class="fitness-btn menu-btn ml-30"><%= current_user.email %></button>
-                    <%= button_to "Wyloguj się", destroy_user_session_path, method: :delete, class: "fitness-btn menu-btn ml-30" %>
-                  <% else %>
-                    <%= button_to "Zaloguj się", new_user_session_path, class: "fitness-btn menu-btn ml-30" %>
-                    <%= link_to "Zarejestruj się", new_user_registration_path, class:"fitness-btn menu-btn ml-30" %>
-                  <% end %>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
-
-
-    <section class="hero-area">
-
-      <div class="hero-slides owl-carousel">
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg1.jpg);">
-          <div class="container h-100">
-            <div class="row h-100 align-items-center">
-              <div class="col-12 col-lg-9">
-                <div class="hero-slides-content">
-                  <h2 data-animation="fadeInUp" data-delay="100ms">LEPSZA WERSJA SIEBIE !</h2>
-                  <p data-animation="fadeInUp" data-delay="400ms">Bądź atrakcyjną,zdrową i pełną energii osobą. Wszystko to możesz osiągnąc za pomocą ćwiczeń fizycznych.</p>
-                  <%= link_to "Dołącz do nas", new_user_registration_path, class:"btn fitness-btn wel-btn", data_animation:"fadeInUp" %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
-          <div class="container h-100">
-            <div class="row h-100 align-items-center">
-              <div class="col-12 col-lg-9">
-                <div class="hero-slides-content">
-                  <h2 data-animation="fadeInUp" data-delay="100ms">TRENING CZYNI MISTRZA!</h2>
-                  <p data-animation="fadeInUp" data-delay="400ms">Aby osiągnąć wymarzony sukces,potrzebujesz tylko chęci.</p>
-                 <a href="#zajecia" class="btn fitness-btn wel-btn" data-animation="fadeInUp" data-delay="700ms">Lista zajęć</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg-3.jpg);">
-          <div class="container h-100">
-            <div class="row h-100 align-items-center">
-              <div class="col-12 col-lg-9">
-                <div class="hero-slides-content">
-                  <h2 data-animation="fadeInUp" data-delay="100ms">SPORTOWE ŻYCIE  DŁUGIE ŻYCIE</h2>
-                  <p data-animation="fadeInUp" data-delay="400ms">Badania wskazują, że ćwiczenia fizyczna mogą wydłużyć długość życia oraz jego jakość.</p>
-                  <a href="#karnety" class="btn fitness-btn wel-btn" data-animation="fadeInUp" data-delay="700ms">Karnety</a>
-                </div>
+  <%= render partial: "/shared/header" %>
+  <section class="hero-area">
+    <div class="hero-slides owl-carousel">
+      <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg1.jpg);">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12 col-lg-9">
+              <div class="hero-slides-content">
+                <h2 data-animation="fadeInUp" data-delay="100ms">LEPSZA WERSJA SIEBIE !</h2>
+                <p data-animation="fadeInUp" data-delay="400ms">Bądź atrakcyjną,zdrową i pełną energii osobą. Wszystko to możesz osiągnąc za pomocą ćwiczeń fizycznych.</p>
+                <%= link_to "Dołącz do nas", new_user_registration_path, class:"btn fitness-btn wel-btn", data_animation:"fadeInUp" %>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <div class="fitness-adds-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <div class="single-add-area mt-100">
-              <a href="#"><img src="img/bg-img/OPEN_FREE.gif" alt=""></a>
+      <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12 col-lg-9">
+              <div class="hero-slides-content">
+                <h2 data-animation="fadeInUp" data-delay="100ms">TRENING CZYNI MISTRZA!</h2>
+                <p data-animation="fadeInUp" data-delay="400ms">Aby osiągnąć wymarzony sukces,potrzebujesz tylko chęci.</p>
+                <a href="#zajecia" class="btn fitness-btn wel-btn" data-animation="fadeInUp" data-delay="700ms">Lista zajęć</a>
+              </div>
             </div>
           </div>
-          <div class="col-12 col-lg-6">
-            <div class="single-add-area mt-100">
-              <a href="#"><img src="img/bg-img/discount_30%.gif" alt=""></a>
+        </div>
+      </div>
+      <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg-3.jpg);">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12 col-lg-9">
+              <div class="hero-slides-content">
+                <h2 data-animation="fadeInUp" data-delay="100ms">SPORTOWE ŻYCIE  DŁUGIE ŻYCIE</h2>
+                <p data-animation="fadeInUp" data-delay="400ms">Badania wskazują, że ćwiczenia fizyczna mogą wydłużyć długość życia oraz jego jakość.</p>
+                <a href="#karnety" class="btn fitness-btn wel-btn" data-animation="fadeInUp" data-delay="700ms">Karnety</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
-
-    <div class="about-us-area section-padding-100-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-heading">
-              <h6>Gym_time</h6>
-              <h2>Dla kogo jest siłownia?</h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 col-lg-8">
-            <div class="row">
-              <div class="col-12 col-lg-6">
-                <div class="about-text">
-                  <p>Siłownia to miejsce dla tych, którzy chcą ćwiczyć, zadbać o swoją atrakcyjność, poprawić samopoczucie i co najważniejsze, zadbać o zdrowie. Siłownia to miejsce dla każdej osoby niezalężnie od płci. Dla osób po urazach, bo to właśnie liczne ćwiczenia siłowe (odpowiednio dobrane i wykonywane) odgrywają wielką rolę w powrocie do sprawności po rozmaitych wypadkach. </p>
-                </div>
-              </div>
-
-              <div class="col-12 col-lg-6">
-                <div class="about-text"></div>
-              </div>
-
-              <div class="col-12">
-                <div class="about-btn-group mt-50">
-                  <%= link_to "Dołącz do nas", new_user_registration_path, class: "btn fitness-btn mr-3" %>
-                  <a href="#" class="btn fitness-btn btn-2">Sprawdź ofertę</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-4">
-            <div class="about-thumb">
-              <img src="img/bg-img/fitness-png-3.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="zajecia" class="fitness-services-area section-padding-100-0">
-      <div class="container">
-        <div class="row">
-          <% @activities.each do |activity| %>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <div class="single-service-area mb-100">
-                <div class="course-content d-flex align-items-center">
-                  <div class="course-icon d-flex align-items-center justify-content-center">
-                    <%= image_tag(activity.image) unless activity.image.blank? %>
-                  </div>
-                  <h4><%= activity.name %></h4>
-                </div>
-                <p><%= activity.description %></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div id="karnety" class="fitness-pricing-table-area section-padding-100-0 bg-img bg-overlay bg-fixed" style="background-image: url(img/bg-img/bg-7.jpg);">
-      <div class="container">
-        <div class="row justify-content-center">
-          <% @products.each do |product| %>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="single-price-table mb-100">
-                <%= image_tag(product.image) unless product.image.blank? %>
-                <div class="price-table-content">
-                  <h2 class="price">
-                    <%= product.price %>zł<span>/ Miesiąc</span>
-                  </h2>
-                  <h5><%= product.name %></h5>
-                  <p><%= product.description.gsub(/\n/, '<br/>').html_safe %></p>
-                  <%= link_to "KUP TERAZ", new_order_path(product_id: product.id), class: "btn fitness-btn mt-30" %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="fitness-working-hours-area section-padding-100-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <div class="fitness-working-hours mb-100">
-                <div class="section-heading">
-                  <h6>Fitness Gym</h6>
-                  <h2>Working Hours</h2>
-                </div>
-                <ul class="working-hours">
-                  <li><span>Monday</span> <span>16:00 - 20:00</span></li>
-                  <li><span>Tuesday</span> <span>12:00 - 20:00</span></li>
-                  <li><span>Wednesday</span> <span>12:00 - 20:00</span></li>
-                  <li><span>Thursday</span> <span>12:00 - 20:00</span></li>
-                  <li><span>Friday</span> <span>15:00 - 21:00</span></li>
-                  <li><span>Saturday</span> <span>10:00 - 20:00</span></li>
-                  <li><span>Sunday</span> <span>Closed</span></li>
-                </ul>
-              </div>
-            </div>
-
-
+  </section>
+  <div class="fitness-adds-area">
+    <div class="container">
+      <div class="row">
         <div class="col-12 col-lg-6">
-            <div class="our-newsletter-area mb-100">
-              <div class="section-heading">
-                <h6>Fitness Gym</h6>
-                <h2>Our Newsletter</h2>
-              </div>
-
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
-                </div>
-                <div class="form-group mb-0">
-                  <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Your E-mail">
-                  <small id="emailHelp" class="form-text text-muted"></small>
-                </div>
-                <button type="submit" class="btn fitness-btn btn-white mt-50">Subscribe</button>
-              </form>
-            </div>
+          <div class="single-add-area mt-100">
+            <a href="#"><img src="img/bg-img/OPEN_FREE.gif" alt=""></a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="single-add-area mt-100">
+            <a href="#"><img src="img/bg-img/discount_30%.gif" alt=""></a>
           </div>
         </div>
       </div>
     </div>
-
-
-
-    <footer class="footer-area section-padding-100-0 bg-img bg-overlay" style="background-image: url(img/bg-img/bg-11.jpg);">
-
-        <div class="main-footer-area">
-            <div class="container">
-                <div class="row">
-
-
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="footer-widget-area mb-50">
-
-                            <div class="widget-title">
-                                <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                            </div>
-                            <p class="mb-30">Proin nunc sapien, gravida ut sapien ut, ultrices faucibus sapien. Proin vehicula varius ex, vel feugiat massa scelerisque id. Nullam vulputate a lectus non molestie. Duis at lobortis neque.</p>
-
-                            <div class="footer-social-info">
-                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="footer-widget-area mb-50">
-
-                            <div class="widget-title">
-                                <h6>testimonials</h6>
-                            </div>
-
-
-                            <div class="testimonials-slides owl-carousel">
-
-                                <div class="single-slide">
-
-                                    <div class="single-testimonial">
-                                        <p>“ Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus</p>
-                                        <span>Michael Smith</span>
-                                    </div>
-
-                                    <div class="single-testimonial">
-                                        <p>“ Molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus</p>
-                                        <span>Julia Williams</span>
-                                    </div>
-                                </div>
-
-                                <div class="single-slide">
-
-                                    <div class="single-testimonial">
-                                        <p>“ Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus</p>
-                                        <span>Michael Smith</span>
-                                    </div>
-
-                                    <div class="single-testimonial">
-                                        <p>“ Molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus</p>
-                                        <span>Julia Williams</span>
-                                    </div>
-                                </div>
-
-                                <div class="single-slide">
-
-                                    <div class="single-testimonial">
-                                        <p>“ Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus</p>
-                                        <span>Michael Smith</span>
-                                    </div>
-
-                                    <div class="single-testimonial">
-                                        <p>“ Molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus</p>
-                                        <span>Julia Williams</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="footer-widget-area mb-50">
-                            <div class="widget-title">
-                                <h6>Classes</h6>
-                            </div>
-
-                            <nav>
-                                <ul class="fitness-classes">
-                                    <li><a href="#">Bodybuilding Class</a></li>
-                                    <li><a href="#">Fitness Class</a></li>
-                                    <li><a href="#">Yoga Courses</a></li>
-                                    <li><a href="#">Dumbell Class</a></li>
-                                    <li><a href="#">Spinning Class</a></li>
-                                    <li><a href="#">Kangoo Jump Class</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-
-
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="footer-widget-area mb-50">
-                            <div class="widget-title">
-                                <h6>Contact</h6>
-                            </div>
-
-
-                            <div class="single-contact mb-30">
-                                <span>Address:</span>
-                                <p>481 Creekside Lane Avila <br>Beach, CA 93424</p>
-                            </div>
-
-
-                            <div class="single-contact mb-30">
-                                <span>Phone:</span>
-                                <p>+53 345 7953 32453</p>
-                            </div>
-
-
-                            <div class="single-contact mb-30">
-                                <span>Email:</span>
-                                <p>yourmail@gmail.com</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-      <div class="bottom-footer-area">
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <p><a href="#
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a
-  </p>
-              </div>
-            </div>
+  </div>
+  <div class="about-us-area section-padding-100-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-heading">
+            <h6>Gym_time</h6>
+            <h2>Dla kogo jest siłownia?</h2>
+          </div>
         </div>
       </div>
-    </footer>
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <div class="about-text">
+                <p>Siłownia to miejsce dla tych, którzy chcą ćwiczyć, zadbać o swoją atrakcyjność, poprawić samopoczucie i co najważniejsze, zadbać o zdrowie. Siłownia to miejsce dla każdej osoby niezalężnie od płci. Dla osób po urazach, bo to właśnie liczne ćwiczenia siłowe (odpowiednio dobrane i wykonywane) odgrywają wielką rolę w powrocie do sprawności po rozmaitych wypadkach. </p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="about-text"></div>
+            </div>
+            <div class="col-12">
+              <div class="about-btn-group mt-50">
+                <%= link_to "Dołącz do nas", new_user_registration_path, class: "btn fitness-btn mr-3" %>
+                <a href="#" class="btn fitness-btn btn-2">Sprawdź ofertę</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="about-thumb">
+            <img src="img/bg-img/fitness-png-3.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="zajecia" class="fitness-services-area section-padding-100-0">
+    <div class="container">
+      <div class="row">
+        <% @activities.each do |activity| %>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-service-area mb-100">
+            <div class="course-content d-flex align-items-center">
+              <div class="course-icon d-flex align-items-center justify-content-center">
+                <%= image_tag(activity.image) unless activity.image.blank? %>
+              </div>
+              <h4><%= activity.name %></h4>
+            </div>
+            <p><%= activity.description %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="karnety" class="fitness-pricing-table-area section-padding-100-0 bg-img bg-overlay bg-fixed" style="background-image: url(img/bg-img/bg-7.jpg);">
+    <div class="container">
+      <div class="row justify-content-center">
+        <% @products.each do |product| %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="single-price-table mb-100">
+            <%= image_tag(product.image) unless product.image.blank? %>
+            <div class="price-table-content">
+              <h2 class="price">
+                <%= product.price %>zł<span>/ Miesiąc</span>
+              </h2>
+              <h5><%= product.name %></h5>
+              <p><%= product.description.gsub(/\n/, '<br/>').html_safe %></p>
+              <%= link_to "KUP TERAZ", new_order_path(product_id: product.id), class: "btn fitness-btn mt-30" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <script src="js/bootstrap/popper.min.js"></script>
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script src="js/plugins/plugins.js"></script>
-    <script src="js/active.js"></script>
-  </body>
+  <div class="fitness-working-hours-area section-padding-100-0">
+    <div class="container"></div>
+  </div>
+  <%= render partial: '/shared/footer' %>
+  <script src="js/jquery/jquery-2.2.4.min.js"></script>
+  <script src="js/plugins/plugins.js"></script>
+  <script src="js/active.js"></script>
+</body>
 </html>

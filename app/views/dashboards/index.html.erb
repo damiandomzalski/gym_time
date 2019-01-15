@@ -1,137 +1,91 @@
-
-  <!-- Content Wrapper. Contains page content -->
-
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Version 2.0</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <!-- Info boxes -->
-      <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">CPU Traffic</span>
-              <span class="info-box-number">90<small>%</small></span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
+<section class="content-header">
+  <h1>
+    Dashboard
+    <small>Version 2.0</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Dashboard</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Postęp aplikacji</span>
+          <span class="info-box-number">70<small>%</small></span>
         </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
-              <span class="info-box-number">41,410</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-
-        <!-- fix for small devices only -->
-        <div class="clearfix visible-sm-block"></div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Sprzedane produkty</span>
-              <span class="info-box-number"><%= @orders_count %></span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Zarejestrowanych klientów</span>
-              <span class="info-box-number"><%= @clients_count %></span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
-
-          <!-- TABLE: LATEST ORDERS -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Ostatnie 10 zamówień</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-                <table class="table no-margin">
-                  <thead>
-                  <tr>
-                    <th>Order ID</th>
-                    <th>Produkt</th>
-                    <th>Kwota</th>
-                    <th>Data aktywacji</th>
-                    <th>Data zakończenia</th>
-                    <th>Zamawiający</th>
-                    <th>Data zamówienia</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    <% @orders.each do |order| %>
-                      <tr>
-                        <td><%= order.id %></td>
-                        <td><%= order.product.name %></td>
-                        <td><%= order.product.price %> PLN</td>
-                        <td><%= order.ticket&.start_date&.strftime('%d-%m-%Y') %></td>
-                        <td><%= order.ticket&.end_date&.strftime('%d-%m-%Y') %></td>
-                        <td><%= order.user.email %></td>
-                        <td><%= order.created_at.strftime('%H:%M (%d.%m.%y)') %></td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-            <!-- <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
-            </div> -->
-            <!-- /.box-footer -->
-          </div>
-          <!-- /.box -->
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="fa fa-pagelines"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Liczba zajęć</span>
+          <span class="info-box-number"><%= @activities_count %></span>
         </div>
-        <!-- /.col -->
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
-  <!-- /.content-wrapper -->
+    </div>
+    <div class="clearfix visible-sm-block"></div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Sprzedane produkty</span>
+          <span class="info-box-number"><%= @orders_count %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Zarejestrowanych klientów</span>
+          <span class="info-box-number"><%= @clients_count %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Ostatnie 10 zamówień</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      </div>
+    </div>
+    <div class="box-body">
+      <div class="table-responsive">
+        <table class="table no-margin">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Produkt</th>
+              <th>Kwota</th>
+              <th>Data aktywacji</th>
+              <th>Data zakończenia</th>
+              <th>Zamawiający</th>
+              <th>Data zamówienia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.id %></td>
+              <td><%= order.product.name %></td>
+              <td><%= order.product.price %> PLN</td>
+              <td><%= order.ticket&.start_date&.strftime('%d-%m-%Y') %></td>
+              <td><%= order.ticket&.end_date&.strftime('%d-%m-%Y') %></td>
+              <td><%= order.user.email %></td>
+              <td><%= order.created_at.strftime('%H:%M (%d.%m.%y)') %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

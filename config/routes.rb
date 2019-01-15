@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   resources :pages
   resources :dashboards do
     collection do
+      get :activities
+      get :edit_activity
+      put :update_activity
+      post :attach_trainer_to_activity
+      get :products
+      get :edit_product
       get :new_product
+      put :update_product
       post :create_product
     end
   end

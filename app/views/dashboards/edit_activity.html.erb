@@ -1,0 +1,40 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Edycja zajęć <%= @activity.name %>
+    </h1>
+    <ol class="breadcrumb">
+      <li><%= link_to dashboards_path do %><i class="fa fa-circle-o"></i> Dashboard <% end %></li>
+      <li><%= link_to activities_dashboards_path do %><i class="fa fa-circle-o"></i> Zajęcia <% end %></li>
+      <li class="active">Edycja zajęc</li>
+    </ol>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box box-primary">
+          <%= form_for @activity, url: update_activity_dashboards_path(id: params[:id]), method: :put do |f| %>
+          <div class="box-body">
+            <div class="form-group">
+              <%= f.label :name, "Nazwa produktu" %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description, "Opis zajęć" %>
+              <%= f.text_field :description, escape_html: true, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :number_seats, "Liczba miejsc" %>
+              <%= f.text_field :number_seats, class: 'form-control' %>
+            </div>
+            <div class="box-footer">
+              <%= f.submit "Aktualizuj zajęcia", class: 'btn btn-primary' %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

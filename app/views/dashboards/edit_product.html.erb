@@ -1,19 +1,19 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Tworzenie produktu
+      Edycja produktu <%= @product.name %>
     </h1>
     <ol class="breadcrumb">
       <li><%= link_to dashboards_path do %><i class="fa fa-circle-o"></i> Dashboard <% end %></li>
       <li><%= link_to products_dashboards_path do %><i class="fa fa-circle-o"></i> Produkty <% end %></li>
-      <li class="active">Tworzenie produktu</li>
+      <li class="active">Edycja produktu</li>
     </ol>
   </section>
   <section class="content">
     <div class="row">
       <div class="col-md-6">
         <div class="box box-primary">
-          <%= form_for @product, url: create_product_dashboards_path, method: :post do |f| %>
+          <%= form_for @product, url: update_product_dashboards_path(id: params[:id]), method: :put do |f| %>
           <div class="box-body">
             <div class="form-group">
               <%= f.label :name, "Nazwa produktu" %>
@@ -27,14 +27,14 @@
             </div>
             <div class="form-group">
               <%= f.label :description, "Opis produktu" %>
-              <%= f.text_field :description, class: 'form-control' %>
+              <%= f.text_field :description, escape_html: true, class: 'form-control' %>
             </div>
             <div class="form-group">
               <%= f.label :days, "Dni waznosci produktu" %>
               <%= f.text_field :days, class: 'form-control' %>
             </div>
             <div class="box-footer">
-              <%= f.submit "Dodaj produkt", class: 'btn btn-primary' %>
+              <%= f.submit "Aktualizuj produkt", class: 'btn btn-primary' %>
             </div>
             <% end %>
           </div>
