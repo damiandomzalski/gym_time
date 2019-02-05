@@ -4,4 +4,6 @@ class Product < ApplicationRecord
   validates_presence_of  :name, message: "Musisz podać nazwę produktu"
   validates_presence_of  :price, message: "Musisz podać cenę produktu"
   validates_presence_of  :days, message: "Musisz podać liczbę dni ważnosci produktu"
+
+  validates_uniqueness_of :name, message: "Dodaj niepowtarzalną nazwę produktu"
 end

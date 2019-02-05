@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many  :activities_calendar
   has_many  :activities_attends
   has_many  :orders
-  
+  has_attached_file :image
+
   scope :trainers, -> { where(role: 'trener') }
+  validates_attachment :image,
+                     content_type: { content_type: /\Aimage\/.*\z/ },
+                     size: { less_than: 1.megabyte }
 end

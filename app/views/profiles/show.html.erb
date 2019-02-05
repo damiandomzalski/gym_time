@@ -8,7 +8,14 @@
       <div class="text-center">
         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
         <h6>Załaduj zdjęcie</h6>
-        <input type="file" class="text-center center-block file-upload">
+        <%= form_for @user, url: profile_path(@user), html: { method: :put } do |f| %>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
       </div><br>
     </div>
     <div class="col-sm-9">

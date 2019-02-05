@@ -6,6 +6,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'loofah'
 gem 'devise'
 gem 'pry'
+gem "paperclip"
 gem 'rails', '~> 5.2.1'
 gem 'sqlite3'
 gem 'puma', '~> 3.11'
