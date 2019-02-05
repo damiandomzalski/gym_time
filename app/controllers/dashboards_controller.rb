@@ -73,6 +73,25 @@ class DashboardsController < ApplicationController
     end
   end
 
+  def equipments
+    @equipments = Equipment.all
+  end
+
+  def new_equipment
+    @equipment = Equipment.new
+  end
+
+  def create_equipment
+    @equipment = Equipment.new(equipment_params)
+    if @equipment.save
+      flash[:success] = "Produkt utworzony"
+      redirect_to equipments_dashboards_path
+    else
+      flash[:danger] = "Nie można utworzyc produktu: #{@equipment.errors.values.flatten.join(", ")}"
+      redirect_to new_equipment_dashboards_path
+    end
+  end
+
   private
 
   def authorize_admin
@@ -86,4 +105,9 @@ class DashboardsController < ApplicationController
   def activity_params
     params.require(:activity).permit(:name, :number_seats, :description)
   end
+
+  def equipment_params
+    params.require(:equipment).permit(:condition, :name)
+  end
+  
 end

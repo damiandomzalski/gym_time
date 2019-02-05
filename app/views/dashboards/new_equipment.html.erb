@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+     Dodawanie sprzętu
+    </h1>
+    <ol class="breadcrumb">
+      <li><%= link_to dashboards_path do %><i class="fa fa-circle-o"></i> Dashboard <% end %></li>
+      <li><%= link_to equipments_dashboards_path do %><i class="fa fa-circle-o"></i> Sprzęt <% end %></li>
+      <li class="active">Dodawanie sprzętu</li>
+    </ol>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box box-primary">
+          <%= form_for @equipment, url: create_equipment_dashboards_path, method: :post do |f| %>
+          <div class="box-body">
+            <div class="form-group">
+              <%= f.label :name, "Nazwa sprzętu" %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+
+            <%= f.label :condition, "Kondycja" %>
+            <div class="input-group">
+              <span class="input-group-addon">Ocena</span>
+              <%= f.text_field :condition, class: 'form-control' %>
+              <span class="input-group-addon"></span>
+            </div>
+
+           
+            <div class="box-footer">
+              <%= f.submit "Dodaj sprzęt", class: 'btn btn-primary' %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
