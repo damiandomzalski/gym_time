@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       get :new_product
       put :update_product
       post :create_product
+      get :equipments
+      get :new_equipment
+      post :create_equipment
     end
   end
   resources :trainers

@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_02_05_191633) do
     t.integer "condition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -113,9 +114,6 @@ ActiveRecord::Schema.define(version: 2019_02_05_191633) do
     t.index ["order_id"], name: "index_tickets_on_order_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
-
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'attachment' for column 'image'
 
   create_table "visits", force: :cascade do |t|
     t.datetime "start_visit"

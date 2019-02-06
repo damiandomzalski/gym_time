@@ -1,0 +1,48 @@
+<section class="content-header">
+  <h1>
+   Wyposazenie
+    <small>na stanie</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><%= link_to dashboards_path do %><i class="fa fa-circle-o"></i> Dashboard <% end %></li>
+    <li class="active">Wyposazenie </li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Wyposazenie w systemie</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      </div>
+    </div>
+    <div class="box-body">
+      <div class="table-responsive">
+        <table class="table no-margin">
+          <thead>
+            <tr>
+              <th>Sprzęt ID</th>
+              <th>Nazwa</th>
+              <th>Stan</th>
+              <th>Opcje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @equipments.each do |eq| %>
+            <tr>
+              <td><%=eq.id %></td>
+              <td><%=eq.name %></td>
+              <td><%=eq.condition %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="box-footer clearfix">
+      <%= link_to "Dodaj nowy sprzęt", new_equipment_dashboards_path, class: 'btn btn-sm btn-info btn-flat pull-left' %>
+    </div>
+  </div>
+</section>
