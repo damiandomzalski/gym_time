@@ -10,6 +10,8 @@ class OrdersController < ApplicationController
     @order = Order.new(user: current_user, product: product)
     if @order.save
       assign_ticket
+      order_confirmation_email
+      redirect_to profile_path(current_user)
     end
   end
 
@@ -20,7 +22,7 @@ class OrdersController < ApplicationController
   end
 
   def assign_ticket
-    Ticket.create(user: current_user, order: @order, start_date: Date.today, end_date: Date.today + product.days)
+    Ticket.create(user: current_user, order: @order, start_date: activation_date, end_date: Date.today + product.days)
   end
 
   def activation_date
@@ -33,5 +35,9 @@ class OrdersController < ApplicationController
       flash[:danger] = "Data aktywacji nie może być mniejsza od dzisiejszej."
       redirect_to request.referer
     end
+  end
+
+  def order_confirmation_email
+    ApplicationMailer.confirmation_email(current_user.email, @order.id).deliver
   end
 end
